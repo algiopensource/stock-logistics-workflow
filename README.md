@@ -19,11 +19,12 @@ Please don't hesitate to suggest one of your module to this project. Also, you m
  - https://github.com/OCA/stock-logistics-warehouse
 
 [//]: # (addons)
+
 Available addons
 ----------------
 addon | version | summary
 --- | --- | ---
-[mrp_lock_lot](mrp_lock_lot/) | 8.0.2.0.0 | MRP Lock Lot
+[mrp_lock_lot](mrp_lock_lot/) | 8.0.3.0.0 | MRP Lock Lot
 [picking_dispatch](picking_dispatch/) | 8.0.1.2.3 | Picking dispatch
 [procurement_jit_assign_move](procurement_jit_assign_move/) | 8.0.1.0.0 | Change the behavior of procurement_jit to assign stock moves
 [product_unique_serial](product_unique_serial/) | 8.0.1.0.1 | Product Serial Unique Number
@@ -32,7 +33,7 @@ addon | version | summary
 [stock_auto_move](stock_auto_move/) | 8.0.1.0.0 | Automatic Move Processing
 [stock_disable_force_availability_button](stock_disable_force_availability_button/) | 8.0.1.0.0 | Disable force availability button
 [stock_dropshipping_dual_invoice](stock_dropshipping_dual_invoice/) | 8.0.0.1.0 | Create both Supplier and Customer Invoices from a Dropshipping Delivery
-[stock_lock_lot](stock_lock_lot/) | 8.0.1.1.0 | Stock Lock Lot
+[stock_lock_lot](stock_lock_lot/) | 8.0.2.0.0 | Stock Lock Lot
 [stock_lot_scrap](stock_lot_scrap/) | 8.0.1.0.0 | This module adds a button in Production Lot/Serial Number view form to Scrap all products contained.
 [stock_move_backdating](stock_move_backdating/) | 8.0.1.0.0 | Stock Move Backdating
 [stock_move_description](stock_move_description/) | 8.0.1.0.0 | Stock move description
@@ -41,9 +42,10 @@ addon | version | summary
 [stock_ownership_by_move](stock_ownership_by_move/) | 8.0.0.1.0 | Preserve Ownership of moves (not pickings) on reception.
 [stock_picking_back2draft](stock_picking_back2draft/) | 8.0.1.0.0 | Reopen cancelled pickings
 [stock_picking_backorder_strategy](stock_picking_backorder_strategy/) | 8.0.0.1.0 | Picking backordering strategies
+[stock_picking_backorder_to_sale](stock_picking_backorder_to_sale/) | 8.0.1.0.0 | Create sale order from backorder an cancel backorder
 [stock_picking_compute_delivery_date](stock_picking_compute_delivery_date/) | 8.0.1.1.0 | Stock Picking Compute Delivery Date
 [stock_picking_deliver_uos](stock_picking_deliver_uos/) | 8.0.1.0.0 | Adds fields uos and uos_quantity to Stock Transfer Details
-[stock_picking_invoice_link](stock_picking_invoice_link/) | 8.0.2.0.0 | Adds link between pickings and generated invoices
+[stock_picking_invoice_link](stock_picking_invoice_link/) | 8.0.2.1.0 | Adds link between pickings and generated invoices
 [stock_picking_manual_procurement_group](stock_picking_manual_procurement_group/) | 8.0.1.0.0 | Picking List Manual Procurement Group Creation
 [stock_picking_mass_action](stock_picking_mass_action/) | 8.0.1.0.0 | Stock Picking Mass Action
 [stock_picking_package_preparation](stock_picking_package_preparation/) | 8.0.1.0.0 | Stock Picking Package Preparation
@@ -54,6 +56,7 @@ addon | version | summary
 [stock_scanner](stock_scanner/) | 8.0.1.0.0 | Allows managing barcode readers with simple scenarios
 [stock_split_picking](stock_split_picking/) | 8.0.1.0.0 | Split a picking in two unconfirmed pickings
 [stock_transfer_split_multi](stock_transfer_split_multi/) | 8.0.1.0.0 | In the stock transfer wizard, you can split by multiple units
+
 
 Unported addons
 ---------------
