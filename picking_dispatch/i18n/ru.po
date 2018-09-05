@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: stock-logistics-workflow (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-07 07:49+0000\n"
-"PO-Revision-Date: 2017-01-11 15:38+0000\n"
+"POT-Creation-Date: 2017-08-19 11:08+0000\n"
+"PO-Revision-Date: 2017-08-21 07:18+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Russian (http://www.transifex.com/oca/OCA-stock-logistics-workflow-8-0/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -93,7 +93,7 @@ msgstr "Отменена"
 #. module: picking_dispatch
 #: selection:picking.dispatch,state:0
 msgid "Cancelled"
-msgstr ""
+msgstr "Отменен"
 
 #. module: picking_dispatch
 #: view:website:picking_dispatch.report_picking_dispatch
@@ -120,7 +120,7 @@ msgstr ""
 #. module: picking_dispatch
 #: field:picking.dispatch,company_id:0
 msgid "Company"
-msgstr ""
+msgstr "Компания"
 
 #. module: picking_dispatch
 #: model:ir.actions.act_window,name:picking_dispatch.picking_dispatch_create_act_window
@@ -158,7 +158,7 @@ msgstr ""
 #. module: picking_dispatch
 #: view:website:picking_dispatch.report_picking_dispatch
 msgid "Date:"
-msgstr ""
+msgstr "Дата:"
 
 #. module: picking_dispatch
 #: field:res.company,default_picker_id:0
@@ -217,12 +217,12 @@ msgstr ""
 #: view:picking.dispatch:picking_dispatch.picking_dispatch_search
 #: selection:picking.dispatch,state:0
 msgid "Done"
-msgstr ""
+msgstr "Завершен"
 
 #. module: picking_dispatch
 #: selection:picking.dispatch,state:0
 msgid "Draft"
-msgstr ""
+msgstr "Черновик"
 
 #. module: picking_dispatch
 #: code:addons/picking_dispatch/picking_dispatch.py:187
@@ -340,7 +340,7 @@ msgstr ""
 #: view:picking.dispatch:picking_dispatch.picking_dispatch_form
 #: field:picking.dispatch,notes:0 field:picking.dispatch.creator,notes:0
 msgid "Notes"
-msgstr ""
+msgstr "Примечания"
 
 #. module: picking_dispatch
 #: view:picking.dispatch:picking_dispatch.picking_dispatch_search
@@ -427,7 +427,7 @@ msgstr ""
 #: model:ir.model,name:picking_dispatch.model_product_product
 #: view:website:picking_dispatch.report_picking_dispatch
 msgid "Product"
-msgstr ""
+msgstr "Товар/Услуга"
 
 #. module: picking_dispatch
 #: view:website:picking_dispatch.report_picking_dispatch
