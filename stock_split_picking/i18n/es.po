@@ -20,11 +20,11 @@ msgstr ""
 
 #. module: stock_split_picking
 #: model:ir.ui.view,arch_db:stock_split_picking.view_picking_form
-msgid "Are you sure you want to split current picking ?"
+msgid "Are you sure you want to split current picking?"
 msgstr ""
 
 #. module: stock_split_picking
-#: code:addons/stock_split_picking/models/stock_picking.py:19
+#: code:addons/stock_split_picking/models/stock_picking.py:22
 #, python-format
 msgid "Mark as todo this picking please."
 msgstr ""
@@ -35,12 +35,20 @@ msgid "Split"
 msgstr ""
 
 #. module: stock_split_picking
+#: code:addons/stock_split_picking/models/stock_picking.py:65
+#, python-format
+msgid ""
+"The backorder <a href=\"#\" data-oe-model=\"stock.picking\" data-oe-id=\"%d"
+"\">%s</a> has been created."
+msgstr ""
+
+#. module: stock_split_picking
 #: model:ir.model,name:stock_split_picking.model_stock_picking
 msgid "Transfer"
 msgstr "Transferir"
 
 #. module: stock_split_picking
-#: code:addons/stock_split_picking/models/stock_picking.py:22
+#: code:addons/stock_split_picking/models/stock_picking.py:25
 #, python-format
 msgid ""
 "You must enter done quantity in order to split your picking in several ones."

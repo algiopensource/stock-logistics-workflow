@@ -1,20 +1,27 @@
-# -*- coding: utf-8 -*-
-# © 2012-2014 Alexandre Fayolle, Camptocamp SA
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+# Copyright 2012-2014 Alexandre Fayolle, Camptocamp SA
+# Copyright 2018 Tecnativa - Carlos Dauden
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 {
     'name': 'Stock batch picking',
-    'version': '9.0.1.0.0',
-    'author': "Camptocamp, Odoo Community Association (OCA)",
-    'maintainer': 'Camptocamp',
+    'summary': 'Allows manage a lot of pickings in batch',
+    'version': '11.0.1.0.0',
+    'author': "Camptocamp, "
+              "Tecnativa, "
+              "Odoo Community Association (OCA)",
+    'development_status': 'Mature',
+    'maintainers': [
+        'Camptocamp',
+        'Tecnativa',
+    ],
     'category': 'Inventory',
-    'complexity': "normal",
     'depends': [
         'delivery',
     ],
-    'website': 'http://www.camptocamp.com/',
+    'website': 'https://github.com/OCA/stock-logistics-workflow',
     'data': [
         'data/stock_batch_picking_sequence.xml',
+        'data/batch_picking_actions_server.xml',
         'views/stock_batch_picking.xml',
         'views/product_product.xml',
         'views/report_batch_picking.xml',
@@ -23,8 +30,6 @@
         'wizard/batch_picking_creator_view.xml',
         'security/ir.model.access.csv',
     ],
-    'installable': False,
-    'auto_install': False,
+    'installable': True,
     'license': 'AGPL-3',
-    'application': False
 }

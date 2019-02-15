@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2016 Carlos Dauden <carlos.dauden@tecnativa.com>
 # Copyright 2016 Pedro M. Baeza <pedro.baeza@tecnativa.com>
 # Copyright 2017 David Vidal <david.vidal@tecnativa.com>
@@ -17,23 +16,26 @@ class TestStockLotScrap(common.SavepointCase):
         super(TestStockLotScrap, cls).setUpClass()
         cls.product = cls.env['product.product'].create({
             'name': 'Test product',
+            'type': 'product',
         })
         cls.lot010 = cls.env['stock.production.lot'].create({
             'name': "0000010",
             'product_id': cls.product.id
         })
         cls.quant1 = cls.env['stock.quant'].create({
-            'qty': 5000.0,
+            'quantity': 5000.0,
             'location_id': cls.env.ref('stock.stock_location_stock').id,
             'product_id': cls.product.id,
             'lot_id': cls.lot010.id,
         })
         cls.quant2 = cls.env['stock.quant'].create({
-            'qty': 325.0,
+            'quantity': 325.0,
             'location_id': cls.env.ref('stock.stock_location_stock').id,
             'product_id': cls.product.id,
             'lot_id': cls.lot010.id,
         })
+        # Make sure the user is in English
+        cls.env.user.lang = 'en_US'
 
     def test_picking_created(self):
         res = self.lot010.action_scrap_lot()
@@ -42,6 +44,8 @@ class TestStockLotScrap(common.SavepointCase):
         self.assertAlmostEqual(sum(scrap.mapped('scrap_qty')), 5325)
         self.assertTrue(
             all(scrap.mapped('move_id').mapped(lambda x: x.state == 'done')))
+        scrap[:1].action_validate()
+        self.assertIn("Lot was scrapped by", self.lot010.message_ids[:1].body)
 
     def test_warning(self):
         product_new = self.product.create({

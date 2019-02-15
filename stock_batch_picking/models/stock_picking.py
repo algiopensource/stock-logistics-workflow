@@ -1,8 +1,8 @@
-# -*- coding: utf-8 -*-
-# @2016 Cyril Gaudin, Camptocamp SA
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+# Copyright 2016 Cyril Gaudin, Camptocamp SA
+# Copyright 2018 Tecnativa - Carlos Dauden
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from openerp import api, fields, models
+from odoo import api, fields, models
 
 
 class StockPicking(models.Model):
@@ -37,19 +37,19 @@ class StockPicking(models.Model):
         return result
 
     @api.multi
-    def do_transfer(self):
+    def action_done(self):
         """In addition to what the method in the parent class does,
         Changed batches states to done if all picking are done.
         """
-        result = super(StockPicking, self).do_transfer()
+        result = super(StockPicking, self).action_done()
         self.mapped('batch_picking_id').verify_state()
 
         return result
 
     def force_transfer(self, force_qty=True):
-        """ Do the picking transfer (by calling do_transfer)
+        """ Do the picking transfer (by calling action_done)
 
-        If *force_qty* is True, force the transfer for all product_qty
+        If *force_qty* is True, force the transfer for all product_uom_qty
         when qty_done is 0.
 
         Otherwise, process only pack operation with qty_done.
@@ -62,15 +62,18 @@ class StockPicking(models.Model):
                     continue
 
             if force_qty:
-                for pack in pick.pack_operation_ids:
-                    pack.qty_done = pack.product_qty
+                for pack in pick.move_line_ids:
+                    pack.qty_done = pack.product_uom_qty
             else:
-                if all(pack.qty_done == 0 for pack in pick.pack_operation_ids):
+                if all(pack.qty_done == 0 for pack in pick.move_line_ids):
                     # No qties to process, release out of the batch
                     pick.batch_picking_id = False
                     continue
                 else:
-                    for pack in pick.pack_operation_ids:
-                        pack.product_qty = pack.qty_done
+                    for pack in pick.move_line_ids:
+                        if not pack.qty_done:
+                            pack.unlink()
+                        else:
+                            pack.product_uom_qty = pack.qty_done
 
-            pick.do_transfer()
+            pick.action_done()

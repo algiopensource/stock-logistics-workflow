@@ -22,7 +22,6 @@ msgstr ""
 
 #. module: stock_picking_invoice_link
 #: model:ir.model,name:stock_picking_invoice_link.model_account_invoice
-#: model:ir.model.fields,field_description:stock_picking_invoice_link.field_stock_picking_invoice_id
 #: model:ir.ui.view,arch_db:stock_picking_invoice_link.view_picking_form
 msgid "Invoice"
 msgstr "Račun"
@@ -32,11 +31,6 @@ msgstr "Račun"
 #: model:ir.model.fields,field_description:stock_picking_invoice_link.field_stock_move_invoice_line_id
 msgid "Invoice Line"
 msgstr "Stavka računa"
-
-#. module: stock_picking_invoice_link
-#: model:ir.model.fields,field_description:stock_picking_invoice_link.field_stock_move_invoice_line_ids
-msgid "Invoice Lines"
-msgstr "Stavke računa"
 
 #. module: stock_picking_invoice_link
 #: model:ir.model.fields,field_description:stock_picking_invoice_link.field_stock_picking_invoice_ids
@@ -93,3 +87,6 @@ msgstr "Prenos"
 #: model:ir.ui.view,arch_db:stock_picking_invoice_link.view_picking_form
 msgid "View Invoice"
 msgstr "Vidi račun"
+
+#~ msgid "Invoice Lines"
+#~ msgstr "Stavke računa"

@@ -26,6 +26,7 @@ msgid "Expired"
 msgstr ""
 
 #. module: product_expiry_simple
+#: model:ir.model.fields,field_description:product_expiry_simple.field_stock_move_line_expiry_date
 #: model:ir.model.fields,field_description:product_expiry_simple.field_stock_production_lot_expiry_date
 #: model:ir.model.fields,field_description:product_expiry_simple.field_stock_quant_expiry_date
 #: model:ir.ui.view,arch_db:product_expiry_simple.quant_search_view
@@ -42,6 +43,11 @@ msgstr "Lot/serijska št."
 #: model:ir.ui.view,arch_db:product_expiry_simple.quant_search_view
 #: model:ir.ui.view,arch_db:product_expiry_simple.search_product_lot_filter
 msgid "Not Expired"
+msgstr ""
+
+#. module: product_expiry_simple
+#: model:ir.model,name:product_expiry_simple.model_stock_move_line
+msgid "Packing Operation"
 msgstr ""
 
 #. module: product_expiry_simple

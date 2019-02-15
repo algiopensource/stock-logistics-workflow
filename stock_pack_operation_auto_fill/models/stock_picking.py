@@ -1,8 +1,8 @@
-# -*- coding: utf-8 -*-
 # Copyright 2017 ACSONE SA/NV
+# Copyright 2018 JARSA Sistemas S.A. de C.V.
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import api, fields, models, _
+from odoo import _, api, fields, models
 from odoo.exceptions import UserError
 
 
@@ -14,16 +14,20 @@ class StockPicking(models.Model):
         compute='_compute_action_pack_operation_auto_fill_allowed',
         readonly=True,
     )
+    auto_fill_operation = fields.Boolean(
+        related='picking_type_id.auto_fill_operation',
+        string='Auto fill operations',
+        readonly=True,
+    )
 
-    @api.depends('state', 'pack_operation_ids')
+    @api.depends('state', 'move_line_ids')
     def _compute_action_pack_operation_auto_fill_allowed(self):
-        """ The auto fill button is allowed only in availabe or partially
-        available state, and the picking have pack operations.
+        """ The auto fill button is allowed only in ready state, and the
+        picking have pack operations.
         """
         for rec in self:
-            rec.action_pack_op_auto_fill_allowed = \
-                rec.state in ['partially_available', 'assigned'] and \
-                rec.pack_operation_ids
+            rec.action_pack_op_auto_fill_allowed = (
+                rec.state == 'assigned' and rec.move_line_ids)
 
     @api.multi
     def _check_action_pack_operation_auto_fill_allowed(self):
@@ -37,17 +41,16 @@ class StockPicking(models.Model):
     def action_pack_operation_auto_fill(self):
         """ Fill automatically pack operation for products with the following
         conditions:
-            - there is no tracking set on the product (i.e tracking is none).
-            this condition can be checked by the field `lots_visible` on the
-            pack operation model.
             - the package is not required, the package is required if the
             the no product is set on the operation.
             - the operation has no qty_done yet.
         """
         self._check_action_pack_operation_auto_fill_allowed()
-        operations = self.mapped('pack_operation_ids')
-        operations_to_auto_fill = operations.filtered(
-            lambda op: not op.lots_visible and op.product_id and
-            not op.qty_done)
+        operations = self.mapped('move_line_ids')
+        operations_to_auto_fill = operations.filtered(lambda op: (
+            op.product_id and not op.qty_done and
+            (not op.lots_visible or
+             not op.picking_id.picking_type_id.avoid_lot_assignment)
+        ))
         for op in operations_to_auto_fill:
-            op.qty_done = op.product_qty
+            op.qty_done = op.product_uom_qty
